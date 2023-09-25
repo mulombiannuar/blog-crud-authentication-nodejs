@@ -23,6 +23,13 @@ const show = (req, res) => {
   });
 };
 
+const edit = (req, res) => {
+  const id = req.params.id;
+  res.render("user/blog/edit", {
+    title: "Edit",
+  });
+};
+
 const update = (req, res) => {
   const id = req.params.id;
   res
@@ -39,8 +46,10 @@ const destroy = (req, res) => {
 
 module.exports = {
   index,
-  show,
   create,
+  store,
+  show,
+  edit,
   update,
   destroy,
 };

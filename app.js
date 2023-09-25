@@ -6,7 +6,8 @@ const hbs = require("express-handlebars");
 
 const PageRouter = require("./routes/PageRouter");
 const BlogRouter = require("./routes/BlogRouter");
-const usersRouter = require("./routes/users");
+const UserRouter = require("./routes/UserRouter");
+const AuthRouter = require("./routes/AuthRouter");
 
 const app = express();
 
@@ -29,7 +30,8 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", PageRouter);
+app.use("/auth", AuthRouter);
 app.use("/blog", BlogRouter);
-app.use("/users", usersRouter);
+app.use("/users", UserRouter);
 
 module.exports = app;
