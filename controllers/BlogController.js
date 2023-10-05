@@ -10,10 +10,14 @@ const create = (req, res) => {
   });
 };
 
-const store = (req, res) => {
-  res
-    .status(400)
-    .send({ status: "success", message: "Blog saved successfully" });
+const store = async (req, res) => {
+  try {
+    res
+      .status(200)
+      .json({ status: "success", message: "Blog saved successfully" });
+  } catch (error) {
+    res.status(500).send({ status: "success", message: error.message });
+  }
 };
 
 const show = (req, res) => {
